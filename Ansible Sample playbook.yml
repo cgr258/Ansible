@@ -1,0 +1,19 @@
+---
+- hosts: govaserver
+  become: true
+  become_user: root
+  tasks:
+  - name: install nginx
+    yum: name=nginx state=present
+  - name: start the service
+    service: name=nginx state=started
+  - name: copy the file
+    copy: src=/home/ansible/copyplaybook.txt dest=/home/ansible/
+  - name: Create a user
+    file: path=/home/ansible/govapiple.txt state=touch
+  - name: get the uptime of the system
+    command: uptime
+    register: uptime_output
+  - name: Display uptime
+    debug:
+      msg: "Uptime on the govaserver group is {{ uptime_output.stdout }}"
