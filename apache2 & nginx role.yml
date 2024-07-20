@@ -2,3 +2,9 @@
 - name: install apache2
   apt: name=apache2 state=latest
   become: true
+
+  
+---
+- name: install nginx
+  apt: name=nginx state=latest
+  become: true
