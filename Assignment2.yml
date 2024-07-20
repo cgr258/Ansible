@@ -1,0 +1,14 @@
+---
+- name: tasks for assignment2 on slave 1
+  hosts: slave1
+  become: true
+  tasks:
+  - name: running script on slave1
+    script: assign2.sh
+
+- name: tasks for assignment2 on slave 2
+  hosts: slave2
+  become: true
+  tasks:
+  - name: running script on slave2
+    script: assign2.sh
