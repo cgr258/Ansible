@@ -1,0 +1,15 @@
+---
+- name: tasks for assignment1 on slave1
+  hosts: slave1
+  become: true
+  tasks: 
+  - name: install java 
+    apt: name=openjdk-ll-jdk state=latest 
+
+
+- name: tasks for assignment1 on slave2
+  hosts: slave2
+  become: true
+  tasks: 
+  - name: install mysql 
+    apt: name=mysql-server state=latest 
